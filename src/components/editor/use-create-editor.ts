@@ -23,7 +23,6 @@ import {
 import { CommentsPlugin } from '@udecode/plate-comments/react';
 import { DatePlugin } from '@udecode/plate-date/react';
 import { EmojiInputPlugin } from '@udecode/plate-emoji/react';
-import { ExcalidrawPlugin } from '@udecode/plate-excalidraw/react';
 import { HEADING_KEYS } from '@udecode/plate-heading';
 import { TocPlugin } from '@udecode/plate-heading/react';
 import { HighlightPlugin } from '@udecode/plate-highlight/react';
@@ -80,7 +79,6 @@ import { CommentLeaf } from '@/components/ui/comment-leaf';
 import { DateElement } from '@/components/ui/date-element';
 import { EmojiInputElement } from '@/components/ui/emoji-input-element';
 import { EquationElement } from '@/components/ui/equation-element';
-import { ExcalidrawElement } from '@/components/ui/excalidraw-element';
 import { HeadingElement } from '@/components/ui/heading-element';
 import { HighlightLeaf } from '@/components/ui/highlight-leaf';
 import { HrElement } from '@/components/ui/hr-element';
@@ -120,7 +118,6 @@ export const viewComponents = {
   [CommentsPlugin.key]: CommentLeaf,
   [DatePlugin.key]: DateElement,
   [EquationPlugin.key]: EquationElement,
-  [ExcalidrawPlugin.key]: ExcalidrawElement,
   [FilePlugin.key]: MediaFileElement,
   [HEADING_KEYS.h1]: withProps(HeadingElement, { variant: 'h1' }),
   [HEADING_KEYS.h2]: withProps(HeadingElement, { variant: 'h2' }),
