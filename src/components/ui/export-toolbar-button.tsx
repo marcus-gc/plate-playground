@@ -54,7 +54,6 @@ import {
   BaseInlineEquationPlugin,
 } from '@udecode/plate-math';
 import {
-  BaseAudioPlugin,
   BaseFilePlugin,
   BaseImagePlugin,
   BaseMediaEmbedPlugin,
@@ -99,7 +98,6 @@ import {
 } from '@/components/ui/indent-todo-marker-static';
 import { KbdLeafStatic } from '@/components/ui/kbd-leaf-static';
 import { LinkElementStatic } from '@/components/ui/link-element-static';
-import { MediaAudioElementStatic } from '@/components/ui/media-audio-element-static';
 import { MediaFileElementStatic } from '@/components/ui/media-file-element-static';
 import { MediaVideoElementStatic } from '@/components/ui/media-video-element-static';
 import { MentionElementStatic } from '@/components/ui/mention-element-static';
@@ -195,7 +193,6 @@ export function ExportToolbarButton(props: DropdownMenuProps) {
 
   const exportToHtml = async () => {
     const components = {
-      [BaseAudioPlugin.key]: MediaAudioElementStatic,
       [BaseBlockquotePlugin.key]: BlockquoteElementStatic,
       [BaseBoldPlugin.key]: withProps(SlateLeaf, { as: 'strong' }),
       [BaseCodeBlockPlugin.key]: CodeBlockElementStatic,
@@ -243,7 +240,6 @@ export function ExportToolbarButton(props: DropdownMenuProps) {
         BaseColumnItemPlugin,
         BaseTocPlugin,
         BaseVideoPlugin,
-        BaseAudioPlugin,
         BaseParagraphPlugin,
         BaseHeadingPlugin,
         BaseMediaEmbedPlugin,

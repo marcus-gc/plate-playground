@@ -46,7 +46,6 @@ import {
   BaseInlineEquationPlugin,
 } from '@udecode/plate-math';
 import {
-  BaseAudioPlugin,
   BaseFilePlugin,
   BaseImagePlugin,
   BaseVideoPlugin,
@@ -85,7 +84,6 @@ import { ImageElementStatic } from './image-element-static';
 import { InlineEquationElementStatic } from './inline-equation-element-static';
 import { KbdLeaf } from './kbd-leaf';
 import { LinkElementStatic } from './link-element-static';
-import { MediaAudioElementStatic } from './media-audio-element-static';
 import { MediaFileElementStatic } from './media-file-element-static';
 import { MediaVideoElementStatic } from './media-video-element-static';
 import { MentionElementStatic } from './mention-element-static';
@@ -99,7 +97,6 @@ import { TableRowElementStatic } from './table-row-element-static';
 import { TocElementStatic } from './toc-element-static';
 
 const components = {
-  [BaseAudioPlugin.key]: MediaAudioElementStatic,
   [BaseBlockquotePlugin.key]: BlockquoteElementStatic,
   [BaseBoldPlugin.key]: withProps(SlateLeaf, { as: 'strong' }),
   [BaseCalloutPlugin.key]: CalloutElementStatic,

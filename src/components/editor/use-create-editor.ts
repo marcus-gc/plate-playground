@@ -88,7 +88,6 @@ import { ImageElement } from '@/components/ui/image-element';
 import { InlineEquationElement } from '@/components/ui/inline-equation-element';
 import { KbdLeaf } from '@/components/ui/kbd-leaf';
 import { LinkElement } from '@/components/ui/link-element';
-import { MediaAudioElement } from '@/components/ui/media-audio-element';
 import { MediaEmbedElement } from '@/components/ui/media-embed-element';
 import { MediaFileElement } from '@/components/ui/media-file-element';
 import { MediaPlaceholderElement } from '@/components/ui/media-placeholder-element';
@@ -109,7 +108,6 @@ import { TocElement } from '@/components/ui/toc-element';
 import { ToggleElement } from '@/components/ui/toggle-element';
 
 export const viewComponents = {
-  [AudioPlugin.key]: MediaAudioElement,
   [BlockquotePlugin.key]: BlockquoteElement,
   [BoldPlugin.key]: withProps(PlateLeaf, { as: 'strong' }),
   [CalloutPlugin.key]: CalloutElement,
