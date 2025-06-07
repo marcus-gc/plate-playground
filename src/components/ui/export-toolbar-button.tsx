@@ -27,7 +27,6 @@ import {
   BaseCodeLinePlugin,
   BaseCodeSyntaxPlugin,
 } from '@udecode/plate-code-block';
-import { BaseCommentsPlugin } from '@udecode/plate-comments';
 import { BaseDatePlugin } from '@udecode/plate-date';
 import {
   BaseFontBackgroundColorPlugin,
@@ -85,7 +84,6 @@ import { CodeLineElementStatic } from '@/components/ui/code-line-element-static'
 import { CodeSyntaxLeafStatic } from '@/components/ui/code-syntax-leaf-static';
 import { ColumnElementStatic } from '@/components/ui/column-element-static';
 import { ColumnGroupElementStatic } from '@/components/ui/column-group-element-static';
-import { CommentLeafStatic } from '@/components/ui/comment-leaf-static';
 import { DateElementStatic } from '@/components/ui/date-element-static';
 import { HeadingElementStatic } from '@/components/ui/heading-element-static';
 import { HighlightLeafStatic } from '@/components/ui/highlight-leaf-static';
@@ -201,7 +199,6 @@ export function ExportToolbarButton(props: DropdownMenuProps) {
       [BaseCodeSyntaxPlugin.key]: CodeSyntaxLeafStatic,
       [BaseColumnItemPlugin.key]: ColumnElementStatic,
       [BaseColumnPlugin.key]: ColumnGroupElementStatic,
-      [BaseCommentsPlugin.key]: CommentLeafStatic,
       [BaseDatePlugin.key]: DateElementStatic,
       [BaseEquationPlugin.key]: EquationElementStatic,
       [BaseFilePlugin.key]: MediaFileElementStatic,
