@@ -314,7 +314,6 @@ export function ExportToolbarButton(props: DropdownMenuProps) {
         BaseFilePlugin,
         BaseImagePlugin,
         BaseMentionPlugin,
-        BaseCommentsPlugin,
         BaseTogglePlugin,
       ],
       value: editor.children,

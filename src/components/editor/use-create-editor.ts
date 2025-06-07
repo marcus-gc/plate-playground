@@ -45,7 +45,6 @@ import {
   MentionPlugin,
 } from '@udecode/plate-mention/react';
 import { SlashInputPlugin } from '@udecode/plate-slash-command/react';
-import { SuggestionPlugin } from '@udecode/plate-suggestion/react';
 import {
   TableCellHeaderPlugin,
   TableCellPlugin,
