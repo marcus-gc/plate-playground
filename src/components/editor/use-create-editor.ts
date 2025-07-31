@@ -20,10 +20,8 @@ import {
   CodeLinePlugin,
   CodeSyntaxPlugin,
 } from '@udecode/plate-code-block/react';
-import { CommentsPlugin } from '@udecode/plate-comments/react';
 import { DatePlugin } from '@udecode/plate-date/react';
 import { EmojiInputPlugin } from '@udecode/plate-emoji/react';
-import { ExcalidrawPlugin } from '@udecode/plate-excalidraw/react';
 import { HEADING_KEYS } from '@udecode/plate-heading';
 import { TocPlugin } from '@udecode/plate-heading/react';
 import { HighlightPlugin } from '@udecode/plate-highlight/react';
@@ -36,7 +34,6 @@ import {
   InlineEquationPlugin,
 } from '@udecode/plate-math/react';
 import {
-  AudioPlugin,
   FilePlugin,
   ImagePlugin,
   MediaEmbedPlugin,
@@ -48,7 +45,6 @@ import {
   MentionPlugin,
 } from '@udecode/plate-mention/react';
 import { SlashInputPlugin } from '@udecode/plate-slash-command/react';
-import { SuggestionPlugin } from '@udecode/plate-suggestion/react';
 import {
   TableCellHeaderPlugin,
   TableCellPlugin,
@@ -76,11 +72,9 @@ import { CodeLineElement } from '@/components/ui/code-line-element';
 import { CodeSyntaxLeaf } from '@/components/ui/code-syntax-leaf';
 import { ColumnElement } from '@/components/ui/column-element';
 import { ColumnGroupElement } from '@/components/ui/column-group-element';
-import { CommentLeaf } from '@/components/ui/comment-leaf';
 import { DateElement } from '@/components/ui/date-element';
 import { EmojiInputElement } from '@/components/ui/emoji-input-element';
 import { EquationElement } from '@/components/ui/equation-element';
-import { ExcalidrawElement } from '@/components/ui/excalidraw-element';
 import { HeadingElement } from '@/components/ui/heading-element';
 import { HighlightLeaf } from '@/components/ui/highlight-leaf';
 import { HrElement } from '@/components/ui/hr-element';
@@ -88,7 +82,6 @@ import { ImageElement } from '@/components/ui/image-element';
 import { InlineEquationElement } from '@/components/ui/inline-equation-element';
 import { KbdLeaf } from '@/components/ui/kbd-leaf';
 import { LinkElement } from '@/components/ui/link-element';
-import { MediaAudioElement } from '@/components/ui/media-audio-element';
 import { MediaEmbedElement } from '@/components/ui/media-embed-element';
 import { MediaFileElement } from '@/components/ui/media-file-element';
 import { MediaPlaceholderElement } from '@/components/ui/media-placeholder-element';
@@ -98,7 +91,6 @@ import { MentionInputElement } from '@/components/ui/mention-input-element';
 import { ParagraphElement } from '@/components/ui/paragraph-element';
 import { withPlaceholders } from '@/components/ui/placeholder';
 import { SlashInputElement } from '@/components/ui/slash-input-element';
-import { SuggestionLeaf } from '@/components/ui/suggestion-leaf';
 import {
   TableCellElement,
   TableCellHeaderElement,
@@ -109,7 +101,6 @@ import { TocElement } from '@/components/ui/toc-element';
 import { ToggleElement } from '@/components/ui/toggle-element';
 
 export const viewComponents = {
-  [AudioPlugin.key]: MediaAudioElement,
   [BlockquotePlugin.key]: BlockquoteElement,
   [BoldPlugin.key]: withProps(PlateLeaf, { as: 'strong' }),
   [CalloutPlugin.key]: CalloutElement,
@@ -119,10 +110,8 @@ export const viewComponents = {
   [CodeSyntaxPlugin.key]: CodeSyntaxLeaf,
   [ColumnItemPlugin.key]: ColumnElement,
   [ColumnPlugin.key]: ColumnGroupElement,
-  [CommentsPlugin.key]: CommentLeaf,
   [DatePlugin.key]: DateElement,
   [EquationPlugin.key]: EquationElement,
-  [ExcalidrawPlugin.key]: ExcalidrawElement,
   [FilePlugin.key]: MediaFileElement,
   [HEADING_KEYS.h1]: withProps(HeadingElement, { variant: 'h1' }),
   [HEADING_KEYS.h2]: withProps(HeadingElement, { variant: 'h2' }),
@@ -143,7 +132,6 @@ export const viewComponents = {
   [PlaceholderPlugin.key]: MediaPlaceholderElement,
   [StrikethroughPlugin.key]: withProps(PlateLeaf, { as: 's' }),
   [SubscriptPlugin.key]: withProps(PlateLeaf, { as: 'sub' }),
-  [SuggestionPlugin.key]: SuggestionLeaf,
   [SuperscriptPlugin.key]: withProps(PlateLeaf, { as: 'sup' }),
   [TableCellHeaderPlugin.key]: TableCellHeaderElement,
   [TableCellPlugin.key]: TableCellElement,

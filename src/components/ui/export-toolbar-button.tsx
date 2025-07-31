@@ -27,7 +27,6 @@ import {
   BaseCodeLinePlugin,
   BaseCodeSyntaxPlugin,
 } from '@udecode/plate-code-block';
-import { BaseCommentsPlugin } from '@udecode/plate-comments';
 import { BaseDatePlugin } from '@udecode/plate-date';
 import {
   BaseFontBackgroundColorPlugin,
@@ -54,7 +53,6 @@ import {
   BaseInlineEquationPlugin,
 } from '@udecode/plate-math';
 import {
-  BaseAudioPlugin,
   BaseFilePlugin,
   BaseImagePlugin,
   BaseMediaEmbedPlugin,
@@ -86,7 +84,6 @@ import { CodeLineElementStatic } from '@/components/ui/code-line-element-static'
 import { CodeSyntaxLeafStatic } from '@/components/ui/code-syntax-leaf-static';
 import { ColumnElementStatic } from '@/components/ui/column-element-static';
 import { ColumnGroupElementStatic } from '@/components/ui/column-group-element-static';
-import { CommentLeafStatic } from '@/components/ui/comment-leaf-static';
 import { DateElementStatic } from '@/components/ui/date-element-static';
 import { HeadingElementStatic } from '@/components/ui/heading-element-static';
 import { HighlightLeafStatic } from '@/components/ui/highlight-leaf-static';
@@ -99,7 +96,6 @@ import {
 } from '@/components/ui/indent-todo-marker-static';
 import { KbdLeafStatic } from '@/components/ui/kbd-leaf-static';
 import { LinkElementStatic } from '@/components/ui/link-element-static';
-import { MediaAudioElementStatic } from '@/components/ui/media-audio-element-static';
 import { MediaFileElementStatic } from '@/components/ui/media-file-element-static';
 import { MediaVideoElementStatic } from '@/components/ui/media-video-element-static';
 import { MentionElementStatic } from '@/components/ui/mention-element-static';
@@ -195,7 +191,6 @@ export function ExportToolbarButton(props: DropdownMenuProps) {
 
   const exportToHtml = async () => {
     const components = {
-      [BaseAudioPlugin.key]: MediaAudioElementStatic,
       [BaseBlockquotePlugin.key]: BlockquoteElementStatic,
       [BaseBoldPlugin.key]: withProps(SlateLeaf, { as: 'strong' }),
       [BaseCodeBlockPlugin.key]: CodeBlockElementStatic,
@@ -204,7 +199,6 @@ export function ExportToolbarButton(props: DropdownMenuProps) {
       [BaseCodeSyntaxPlugin.key]: CodeSyntaxLeafStatic,
       [BaseColumnItemPlugin.key]: ColumnElementStatic,
       [BaseColumnPlugin.key]: ColumnGroupElementStatic,
-      [BaseCommentsPlugin.key]: CommentLeafStatic,
       [BaseDatePlugin.key]: DateElementStatic,
       [BaseEquationPlugin.key]: EquationElementStatic,
       [BaseFilePlugin.key]: MediaFileElementStatic,
@@ -243,7 +237,6 @@ export function ExportToolbarButton(props: DropdownMenuProps) {
         BaseColumnItemPlugin,
         BaseTocPlugin,
         BaseVideoPlugin,
-        BaseAudioPlugin,
         BaseParagraphPlugin,
         BaseHeadingPlugin,
         BaseMediaEmbedPlugin,
@@ -321,7 +314,6 @@ export function ExportToolbarButton(props: DropdownMenuProps) {
         BaseFilePlugin,
         BaseImagePlugin,
         BaseMentionPlugin,
-        BaseCommentsPlugin,
         BaseTogglePlugin,
       ],
       value: editor.children,
