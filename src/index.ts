@@ -1,6 +1,10 @@
 // Main exports
 export { PlateEditor } from './components/editor/plate-editor';
+export type { PlateEditorProps } from './components/editor/plate-editor';
 export { useCreateEditor } from './components/editor/use-create-editor';
+
+// Email component
+export { Email } from './components/email/email';
 
 // Export types
 export type * from './components/editor/plate-types';
