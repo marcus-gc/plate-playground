@@ -1,54 +1,100 @@
-# Playground Template
+# Plate Editor
 
-A Next.js 15 template with [Plate](https://platejs.org/) AI, plugins and components.
-
-## Features
-
-- Next.js 15 App Directory
-- [Plate](https://platejs.org/) editor
-- [shadcn/ui](https://ui.shadcn.com/)
-- [MCP](https://platejs.org/docs/components/mcp)
-
-## Requirements
-
-- Node.js 20+
-- pnpm 9+
+A rich text editor component library built with [Plate](https://platejs.org) and React.
 
 ## Installation
 
-Choose one of these methods:
-
-### 1. Using CLI (Recommended)
-
 ```bash
-npx shadcn@latest add https://platejs.org/r/editor-ai
+npm install @your-org/plate-editor
+# or
+pnpm add @your-org/plate-editor
+# or
+yarn add @your-org/plate-editor
 ```
 
-### 2. Using Template
+### Peer Dependencies
 
-[Use this template](https://github.com/udecode/plate-playground-template/generate), then install dependencies:
+This package requires the following peer dependencies:
 
 ```bash
-pnpm install
+npm install react@^19.0.0 react-dom@^19.0.0
 ```
+
+## Usage
+
+### Basic Usage
+
+```tsx
+import { PlateEditor } from '@your-org/plate-editor';
+import '@your-org/plate-editor/styles.css';
+
+function App() {
+  return <PlateEditor />;
+}
+```
+
+### Advanced Usage with Custom Editor
+
+```tsx
+import { useCreateEditor, Editor, EditorContainer } from '@your-org/plate-editor';
+import { Plate } from '@udecode/plate/react';
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
+
+function CustomEditor() {
+  const editor = useCreateEditor();
+
+  return (
+    <DndProvider backend={HTML5Backend}>
+      <Plate editor={editor}>
+        <EditorContainer>
+          <Editor variant="demo" />
+        </EditorContainer>
+      </Plate>
+    </DndProvider>
+  );
+}
+```
+
+## Features
+
+This editor includes support for:
+
+- **Rich text formatting**: Bold, italic, underline, strikethrough, code
+- **Block elements**: Headings, paragraphs, blockquotes, code blocks
+- **Lists**: Ordered and unordered lists with indentation
+- **Media**: Images, videos (YouTube), audio
+- **Tables**: Full-featured table support
+- **Links**: Inline links with editing capabilities
+- **Comments**: Collaborative commenting
+- **AI features**: AI-powered text completion and commands
+- **Drag and drop**: Reorder blocks with drag and drop
+- **Equations**: Math equations with KaTeX
+- **Mentions**: @-mentions support
+- **Emojis**: Emoji picker
+- **Date picker**: Insert dates
+- **And much more!**
 
 ## Development
 
-Copy the example env file:
+### Build
 
 ```bash
-cp .env.example .env.local
+pnpm build
 ```
 
-Configure `.env.local`:
-
-- `OPENAI_API_KEY` – OpenAI API key ([get one here](https://platform.openai.com/account/api-keys))
-- `UPLOADTHING_TOKEN` – UploadThing API key ([get one here](https://uploadthing.com/dashboard))
-
-Start the development server:
+### Development Mode
 
 ```bash
 pnpm dev
 ```
 
-Visit http://localhost:3000/editor to see the editor in action.
+### Type Checking
+
+```bash
+pnpm typecheck
+```
+
+## License
+
+MIT
