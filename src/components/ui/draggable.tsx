@@ -258,6 +258,7 @@ const DropLine = React.memo(function DropLine({
         dropLine === 'bottom' && '-bottom-px',
         className
       )}
+      style={{ backgroundColor: 'blue'}} // we should use tailwind classes here
     />
   );
 });

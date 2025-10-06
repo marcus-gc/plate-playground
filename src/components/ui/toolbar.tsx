@@ -22,7 +22,7 @@ export function Toolbar({
 }: React.ComponentProps<typeof ToolbarPrimitive.Root>) {
   return (
     <ToolbarPrimitive.Root
-      className={cn('relative flex items-center select-none', className)}
+      className={cn('relative flex items-center select-none bg-white', className)}
       {...props}
     />
   );

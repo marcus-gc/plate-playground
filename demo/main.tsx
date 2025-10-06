@@ -12,13 +12,13 @@ function App() {
 
   const handleChange = async (newValue: Value) => {
     setValue(newValue);
-
-    // Render email HTML
-    if (newValue && newValue.length > 0) {
-      const html =  await render(<Email elements={newValue} />);
-      setEmailHtml(html);
-    }
   };
+
+  React.useEffect(() => {
+    if (value && value.length > 0) {
+      render(<Email elements={value} />).then(setEmailHtml);
+    }
+  }, [value])
 
   return (
     <div className="min-h-screen bg-background p-8">
