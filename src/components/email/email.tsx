@@ -6,6 +6,9 @@ import {
   Container,
   Heading,
   Text,
+  Link,
+  Row,
+  Column,
 } from '@react-email/components';
 import type { Value } from '@udecode/plate';
 
@@ -16,13 +19,31 @@ interface EmailProps {
 interface PlateElement {
   type: string;
   children: Array<{ text?: string; bold?: boolean; italic?: boolean; underline?: boolean; [key: string]: any }>;
+  indent?: number;
+  listStyleType?: string;
+  align?: 'left' | 'center' | 'right' | 'justify';
+  lineHeight?: number;
   [key: string]: any;
 }
 
 const renderTextNode = (child: any): React.ReactNode => {
   let text = child.text || '';
 
-  if (!text) return null;
+  if (!text && !child.type) return null;
+
+  // Handle link elements
+  if (child.type === 'a') {
+    const linkText = child.children?.map((c: any) => c.text).join('') || '';
+    return (
+      <Link
+        key={Math.random()}
+        href={child.url || '#'}
+        style={{ color: '#2563eb', textDecoration: 'underline' }}
+      >
+        {linkText}
+      </Link>
+    );
+  }
 
   // Apply text formatting
   if (child.bold) {
@@ -47,55 +68,91 @@ const renderChildren = (children: any[]): React.ReactNode => {
 };
 
 const renderElement = (element: PlateElement, index: number): React.ReactNode => {
-  const { type, children } = element;
+  const { type, children, indent, listStyleType, width, align, lineHeight } = element;
   const content = renderChildren(children);
+
+  // Helper to apply alignment and line height
+  const applyTextStyle = (baseStyle: any) => {
+    const style = { ...baseStyle };
+    if (align) {
+      style.textAlign = align;
+    }
+    if (lineHeight) {
+      style.lineHeight = lineHeight.toString();
+    }
+    return style;
+  };
 
   switch (type) {
     case 'h1':
       return (
-        <Heading key={index} as="h1" style={styles.h1}>
+        <Heading key={index} as="h1" style={applyTextStyle(styles.h1)}>
           {content}
         </Heading>
       );
 
     case 'h2':
       return (
-        <Heading key={index} as="h2" style={styles.h2}>
+        <Heading key={index} as="h2" style={applyTextStyle(styles.h2)}>
           {content}
         </Heading>
       );
 
     case 'h3':
       return (
-        <Heading key={index} as="h3" style={styles.h3}>
+        <Heading key={index} as="h3" style={applyTextStyle(styles.h3)}>
           {content}
         </Heading>
       );
 
     case 'h4':
       return (
-        <Heading key={index} as="h4" style={styles.h4}>
+        <Heading key={index} as="h4" style={applyTextStyle(styles.h4)}>
           {content}
         </Heading>
       );
 
     case 'h5':
       return (
-        <Heading key={index} as="h5" style={styles.h5}>
+        <Heading key={index} as="h5" style={applyTextStyle(styles.h5)}>
           {content}
         </Heading>
       );
 
     case 'h6':
       return (
-        <Heading key={index} as="h6" style={styles.h6}>
+        <Heading key={index} as="h6" style={applyTextStyle(styles.h6)}>
           {content}
         </Heading>
       );
 
     case 'p':
+      // Check if this is a list item
+      if (indent && listStyleType) {
+        const bullet = listStyleType === 'disc' ? '•' : '-';
+        const indentPx = (indent - 1) * 20; // 20px per indent level
+
+        return (
+          <Text key={index} style={applyTextStyle({ ...styles.listItem, marginLeft: `${indentPx}px` })}>
+            <span style={{ marginRight: '8px' }}>{bullet}</span>
+            {content}
+          </Text>
+        );
+      }
+
+      // Check if this paragraph has indentation (but not a list)
+      if (indent && !listStyleType) {
+        const indentPx = indent * 40; // 40px per indent level for regular paragraphs
+
+        return (
+          <Text key={index} style={applyTextStyle({ ...styles.paragraph, marginLeft: `${indentPx}px` })}>
+            {content}
+          </Text>
+        );
+      }
+
       return (
-        <Text key={index} style={styles.paragraph}>
+        <Text key={index} style={applyTextStyle(styles.paragraph)}>
           {content}
         </Text>
       );
@@ -106,6 +163,23 @@ const renderElement = (element: PlateElement, index: number): React.ReactNode =>
           {content}
         </blockquote>
       );
+
+    case 'column_group':
+      return (
+        <Row key={index} style={styles.row}>
+          {children?.map((column: any, colIndex: number) => (
+            <Column key={colIndex} style={{ width: column.width || 'auto', ...styles.column }}>
+              {column.children?.map((child: any, childIndex: number) =>
+                renderElement(child as PlateElement, childIndex)
+              )}
+            </Column>
+          ))}
+        </Row>
+      );
+
+    case 'column':
+      // Columns are handled by column_group, so we shouldn't hit this directly
+      return null;
 
     default:
       return (
@@ -175,6 +249,12 @@ const styles = {
     marginTop: '0',
     marginBottom: '12px',
   },
+  listItem: {
+    fontSize: '16px',
+    lineHeight: '1.6',
+    marginTop: '0',
+    marginBottom: '4px',
+  },
   blockquote: {
     borderLeft: '4px solid #e5e7eb',
     paddingLeft: '16px',
@@ -182,6 +262,13 @@ const styles = {
     marginRight: '0',
     fontStyle: 'italic',
     color: '#6b7280',
+  },
+  row: {
+    marginBottom: '16px',
+  },
+  column: {
+    verticalAlign: 'top' as const,
+    padding: '0 12px',
   },
 };
 
