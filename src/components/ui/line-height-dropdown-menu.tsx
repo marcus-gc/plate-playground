@@ -39,7 +39,7 @@ export function LineHeightDropdownMenu({ ...props }: DropdownMenuProps) {
           {state.values.map((_value) => (
             <DropdownMenuRadioItem
               key={_value}
-              className="min-w-[180px] pl-2 *:first:[span]:hidden"
+              className="min-w-[180px] pl-2 [&>*:first-child_span]:hidden"
               value={_value}
             >
               <span className="pointer-events-none absolute right-2 flex size-3.5 items-center justify-center">

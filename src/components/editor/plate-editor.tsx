@@ -21,7 +21,7 @@ export function PlateEditor({ initialValue, onChange }: PlateEditorProps) {
 
   return (
     <DndProvider backend={HTML5Backend}>
-      <Plate editor={editor} onValueChange={({ value }) => onChange(value)}>
+      <Plate editor={editor} onValueChange={({ value }) => onChange && onChange(value)}>
         <EditorContainer>
           <Editor variant="demo" />
         </EditorContainer>

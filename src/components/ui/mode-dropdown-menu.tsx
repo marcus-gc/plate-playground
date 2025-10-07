@@ -71,7 +71,7 @@ export function ModeDropdownMenu(props: DropdownMenuProps) {
           }}
         >
           <DropdownMenuRadioItem
-            className="pl-2 *:first:[span]:hidden *:[svg]:text-muted-foreground"
+            className="pl-2 [&>*:first-child_span]:hidden [&>*_svg]:text-muted-foreground"
             value="editing"
           >
             <Indicator />
@@ -80,7 +80,7 @@ export function ModeDropdownMenu(props: DropdownMenuProps) {
           </DropdownMenuRadioItem>
 
           <DropdownMenuRadioItem
-            className="pl-2 *:first:[span]:hidden *:[svg]:text-muted-foreground"
+            className="pl-2 [&>*:first-child_span]:hidden [&>*_svg]:text-muted-foreground"
             value="viewing"
           >
             <Indicator />

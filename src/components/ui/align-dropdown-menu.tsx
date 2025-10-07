@@ -74,7 +74,7 @@ export function AlignDropdownMenu(props: DropdownMenuProps) {
           {items.map(({ icon: Icon, value: itemValue }) => (
             <DropdownMenuRadioItem
               key={itemValue}
-              className="pl-2 *:first:[span]:hidden"
+              className="pl-2 [&>*:first-child_span]:hidden"
               value={itemValue}
             >
               <Icon />

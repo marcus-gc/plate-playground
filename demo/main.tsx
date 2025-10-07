@@ -21,31 +21,31 @@ function App() {
   }, [value])
 
   return (
-    <div className="min-h-screen bg-background p-8">
-      <div className="mx-auto max-w-6xl space-y-6">
-        <h1 className="text-3xl font-bold">GC Email Composer</h1>
+    <div className="min-h-screen p-4 md:p-8">
+      <div className="mx-auto max-w-7xl">
+        <h1 className="text-2xl md:text-3xl font-bold mb-6">GC Email Composer</h1>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div className="space-y-6">
-            <div className="rounded-lg border bg-card p-6">
-              <h2 className="text-xl font-semibold mb-4">Editor</h2>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
+          <div className="flex flex-col gap-4 md:gap-6">
+            <div className="rounded-lg border p-4 md:p-6">
+              <h2 className="text-lg md:text-xl font-semibold mb-4">Editor</h2>
               <PlateEditor onChange={handleChange} />
             </div>
 
-            <div className="rounded-lg border bg-card p-6">
-              <h2 className="text-xl font-semibold mb-4">Editor Value (JSON):</h2>
-              <pre className="bg-muted p-4 rounded-md overflow-auto max-h-96">
-                <code className="text-sm">
+            <div className="rounded-lg border p-4 md:p-6">
+              <h2 className="text-lg md:text-xl font-semibold mb-4">Editor Value (JSON)</h2>
+              <pre className="p-4 rounded-md overflow-auto max-h-96 bg-slate-50 dark:bg-slate-900">
+                <code className="text-xs md:text-sm">
                   {JSON.stringify(value, null, 2)}
                 </code>
               </pre>
             </div>
           </div>
 
-          <div className="space-y-6">
-            <div className="rounded-lg border bg-card p-6">
-              <h2 className="text-xl font-semibold mb-4">Email Preview</h2>
-              <div className="border rounded-md overflow-hidden">
+          <div className="flex flex-col gap-4 md:gap-6">
+            <div className="rounded-lg border p-4 md:p-6">
+              <h2 className="text-lg md:text-xl font-semibold mb-4">Email Preview</h2>
+              <div className="border rounded-md overflow-hidden bg-white">
                 <iframe
                   srcDoc={emailHtml}
                   className="w-full h-96"
@@ -54,10 +54,10 @@ function App() {
               </div>
             </div>
 
-            <div className="rounded-lg border bg-card p-6">
-              <h2 className="text-xl font-semibold mb-4">Email HTML:</h2>
-              <pre className="bg-muted p-4 rounded-md overflow-auto max-h-96">
-                <code className="text-sm">
+            <div className="rounded-lg border p-4 md:p-6">
+              <h2 className="text-lg md:text-xl font-semibold mb-4">Email HTML</h2>
+              <pre className="p-4 rounded-md overflow-auto max-h-96 bg-slate-50 dark:bg-slate-900">
+                <code className="text-xs md:text-sm break-all whitespace-pre-wrap">
                   {emailHtml}
                 </code>
               </pre>
